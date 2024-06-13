@@ -1,0 +1,27 @@
+.welcome-section {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Cambia el valor de transparencia según tus necesidades */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0, 0, 0);
+    min-height: 200px; /* Ajusta según el contenido real para evitar que se colapse */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.welcome-text {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}

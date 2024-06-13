@@ -1,0 +1,38 @@
+<div class="container users-list mt-5">
+    <div class="text-center mb-4">
+        <h2 class="text-center">Lista de NEO´s Registrados </h2> 
+        <button (click)="registrarUsuario()" class="btn btn-primary btn-sm me-2" *ngIf="loggedUser.rol === 'Administrador'">Registrar NEO</button>
+    </div>
+    <div class="table-responsive">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo Electrónico</th>
+                    <th scope="col">F. Alta</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Rol NEO</th>
+                    <th scope="col" *ngIf="loggedUser.rol === 'Administrador'">Operaciones ADM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of usuarios">
+                    <td>
+                        <img [src]="user.imagen ? user.imagen : 'assets/images/icon.png'" alt="User Image" class="img-fluid user-image rounded-circle">
+                    </td>
+                    <td>{{ user.nombre }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.fechaAlta }}</td>
+                    <td>{{ user.genero }}</td>
+                    <td>{{ user.rol }}</td>
+                    <td *ngIf="loggedUser.rol === 'Administrador'">
+                        <button class="btn btn-primary btn-sm me-2" (click)="editarUsuario(user)">Editar</button>
+                        <button class="btn btn-danger btn-sm" (click)="eliminarUsuario(user.id)" *ngIf="loggedUser.id != user.id">Eliminar</button>
+                        <button class="btn btn-danger btn-sm" style="visibility: hidden;"  *ngIf="loggedUser.id === user.id">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

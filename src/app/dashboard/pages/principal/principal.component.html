@@ -1,0 +1,47 @@
+<!-- Principal y conteo de NEO´s -->
+<div class="welcome-section">
+    <h2 class="text-center mb-3">Principal: </h2>
+    <div class="mb-3 d-flex align-items-center">
+        <div class="welcome-text me-2" *ngIf="loggedUser.genero === 'Femenino'"> 
+            Bienvenida 
+            <span style="color: bisque;">
+                {{ loggedUser.nombre }} 
+            </span>
+            usted tiene el rol de: 
+            <span style="color: bisque;">
+                {{ loggedUser.rol }}
+            </span>
+        </div>
+        <div class="welcome-text me-2" *ngIf="loggedUser.genero === 'Masculino'">
+            Bienvenido
+            <span style="color: bisque;">
+                {{ loggedUser.nombre }}
+            </span>
+            usted tiene el rol de: 
+            <span style="color: bisque;">
+                {{ loggedUser.rol }}
+            </span>
+        </div>
+    </div>
+    <div>
+        Existen un total hasta el momento de <span style="color: aliceblue;">{{ totalUsuarios }} NEO´s </span> registrados.
+    </div>
+</div>
+
+<!-- Descripción de la práctica -->
+<div class="welcome-section mt-3">
+    <h2 class="text-center mb-3">Descripción de la práctica: </h2>
+    <div class="mb-3 d-flex align-items-center">
+     
+        <div class="welcome-text me-2"> 
+            En esta práctica se desarrolla un Front End con el uso de la tecnología Angular: 
+            <div>
+                Se tienen {{ totalUsuarios }} usuarios registrados, cualquier tipo de rol lo podrá observar
+            </div>
+            <div>
+                Unicamente los usuarios con el rol "Administrador" podrán dar de alta a nuevos usuarios.
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container-fluid bg-light vh-100 d-flex align-items-center justify-content-center" style="background-image: url('assets/images/backgroundLogin.png'); background-size: cover;">
+    <div class="card p-4" style="width: 550px; background-color: rgba(255, 255, 255, 0.8);">
+      <img src="assets/images/neoris.png" alt="a" class="rounded-circle mx-auto d-block" style="width: 100px; height: 100px;">
+      <h2 class="text-center mb-4"> Práctica NEO´S - Angular  </h2>
+
+      <form [formGroup]="loginForm" (ngSubmit)="authLogin()" class="text-center">
+        <div class="mb-3 mx-auto" style="max-width: 400px;">
+          <label for="email" class="form-label">Correo electrónico: </label>
+          <input type="email" class="form-control text-center" id="email" placeholder="Correo electrónico" formControlName="email">
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+            <div *ngIf="loginForm.get('email')?.errors?.['required']" class="text-danger">Ingrese el correo electrónico</div>
+            <div *ngIf="loginForm.get('email')?.errors?.['email']" class="text-danger">El correo electrónico introducido no es válido</div>
+          </div>
+        </div>
+        <div class="mb-3 mx-auto" style="max-width: 400px;">
+          <label for="password" class="form-label">Contraseña: </label>
+          <input type="password" class="form-control text-center" id="password" placeholder="Contraseña" formControlName="password">
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            <div *ngIf="loginForm.get('password')?.errors?.['required']" class="text-danger">Ingrese la contraseña</div>
+            <div *ngIf="loginForm.get('password')?.errors?.['minlength']" class="text-danger">La contraseña debe contener al menos 5 caracteres</div>
+          </div>
+        </div>
+        <div *ngIf="banderaLogin" class="mb-3">
+          <div class="text-danger">El correo o la contraseña son incorrectos</div>
+        </div>
+        <div class="d-grid mx-auto" style="max-width: 400px;">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  

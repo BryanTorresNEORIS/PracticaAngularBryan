@@ -1,0 +1,57 @@
+<div class="form-container">
+    <h1 class="text-center">{{ banderaEdicion ? 'Editar NEO' : 'Registrar Nuevo NEO' }}</h1>
+    <form [formGroup]="neoForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" formControlName="nombre" type="text" class="form-control" />
+            <small class="form-text text-danger" *ngIf="neoForm.get('nombre')?.touched && neoForm.get('nombre')?.invalid">El campo nombre es requerido.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" formControlName="email" type="email" class="form-control" />
+            <small class="form-text text-danger" *ngIf="neoForm.get('email')?.touched && neoForm.get('email')?.invalid">El campo email es requerido.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" formControlName="password" type="password" class="form-control" />
+            <small class="form-text text-danger" *ngIf="neoForm.get('password')?.touched && neoForm.get('password')?.invalid">La contraseña debe ser de al menos 5 caracteres.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="genero">Género</label>
+            <select id="genero" formControlName="genero" class="form-control">
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="rol">Rol</label>
+            <select id="rol" formControlName="rol" class="form-control">
+                <option value="Administrador">Administrador</option>
+                <option value="Recepcionista">Recepcionista</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="fechaAlta">Fecha de Alta</label>
+            <input id="fechaAlta" formControlName="fechaAlta" type="text" class="form-control" readonly />
+        </div>
+
+        <div class="form-group">
+            <label for="imagen">Imagen de Perfil</label>
+            <input id="imagen" type="file" class="form-control" (change)="cambioImagen($event)" />
+        </div>
+
+        <div *ngIf="banderaEdicion" class="form-group">
+            <button type="button" class="btn btn-warning" [disabled]="neoForm.invalid" (click)="eliminarImagen()">Eliminar Imagen</button>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" [disabled]="neoForm.invalid">{{ banderaEdicion ? 'Actualizar' : 'Guardar' }}</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+        </div>
+    </form>
+</div>

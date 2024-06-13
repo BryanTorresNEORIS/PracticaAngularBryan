@@ -1,0 +1,32 @@
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center" style="background-image: url('assets/images/backgroundLogin.png');">
+    <div class="p-4" style="width: 100%;">
+        <header class="header">
+            <h1 class="text-center">Registro General de NEO´S </h1>
+            <button (click)="logout()" class="btn-logout">Cerrar Sesión </button>
+        </header>
+
+        <div class="d-flex">
+            <aside class="sidebar">
+                <nav>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/dash" routerLinkActive="seleccionado" [routerLinkActiveOptions]="{ exact: true }">Principal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/dash/usuarios" routerLinkActive="seleccionado"[routerLinkActiveOptions]="{ exact: true }" >NEO´s Registrados</a>
+                        </li>
+                        <!--
+                        <li class="nav-item" *ngIf="loggedUser.rol === 'Administrador'">
+                            <a class="nav-link" routerLink="/dash/usuarios/form" routerLinkActive="seleccionado" [routerLinkActiveOptions]="{ exact: true }">Administracion de de NEO'S</a>
+                        </li>
+                        -->
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="main-content" style="background-color: #9c9c9cec">
+                <router-outlet></router-outlet>
+            </main>
+        </div>
+    </div>
+</div>
